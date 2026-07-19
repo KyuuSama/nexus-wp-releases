@@ -1,4 +1,4 @@
-[🌐 English](README.md) | [🇫🇷 Français](README.fr.md)
+[🌐 English](README.md) | [🇫🇷 Français](README.fr.md) 
 
 # NEXUS-WP (v0.3-Alpha)
 > Système d'exploitation modulaire, intégrateur de code isolé et console de pilotage SaaS pour WordPress.

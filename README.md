@@ -1,7 +1,7 @@
 [🌐 English](README.md) | [🇫🇷 Français](README.fr.md)
 
 # NEXUS-WP (v0.3-Alpha)
-> **Modular operating system, isolated code integrator and SaaS control console for WordPress.
+> Modular operating system, isolated code integrator and SaaS control console for WordPress.
 > *Developed by [Studium Officium](https://www.studiumofficium.com/)*
 
 ![NexusWP Banner](screenshots/NexusXP_screen_00.png)
@@ -16,6 +16,8 @@ NEXUS-WP is a universal engineering and optimization framework for WordPress. De
 The Workshop is the customization and development environment of the extension. It guarantees absolute isolation between the system core and your modifications.
 
 * **Isolated Code Integrator (PHP, CSS, JS)**: Inject custom scripts independently from the factory infrastructure (`nx-users-*`).
+  * *Free vs Premium Scope*: CSS and JS integrators are available out-of-the-box in Free mode. Custom PHP script execution is unlocked via Premium SaaS coupling in full compliance with WordPress.org guidelines.
+  * *Fault Tolerance (Safe Mode & Kill Switch)*: Built-in error boundary system. If a custom PHP script throws a syntax error or runtime exception, NEXUS-WP's emergency kill-switch instantly isolates the faulty snippet, preventing White Screen of Death (500 Error) and keeping the WP-Admin fully accessible.
   * *Scope Security*: Automatically injects WordPress core security directives on created PHP files to prevent direct execution via URL.
   * *Revision Backup Rotation (FIFO)*: Generates a local backup copy (`.bak`) before each write, with an intelligent rolling rotation limited to 3 revisions per type to preserve disk space.
   * *Helper Tools (Prettycode & Minify)*: Built-in optimization tools to instantly reformat (indent) or compress (minify) your CSS and JS codes.
@@ -39,7 +41,7 @@ The Arsenal gathers a catalog of built-in tools activatable in one click to over
 ---
 
 ### 3. The Universal Data Engine (`[nx_field]`)
-NEXUS-WP integrates a universal routing engine for data extraction, formatting, and security, using a single shortcode `[nx_field]` equipped with 14 logical gates:
+NEXUS-WP integrates a universal routing engine for data extraction, formatting, and security, using a single shortcode `[nx_field]` equipped with 14 logical gates. Designed for ultra-high performance, shortcode calls are fused natively within factory PHP execution and cached via **WP Transients & Memcached** to guarantee zero database query overhead on high-traffic pages.
 
 1. **`text`**: Extraction and formatting of strings (phones, currencies) with built-in array-conversion crash protection.
 2. **`wysiwyg`**: Rendering of rich text paragraphs with recursive parsing of nested shortcodes.
@@ -62,9 +64,10 @@ NEXUS-WP integrates a universal routing engine for data extraction, formatting, 
 The Logistics pillar connects the local extension to the central NEXUS SaaS infrastructure via an ultra-lightweight and asynchronous encrypted protocol:
 
 * **Onboarding Connection**: The user logs in using standard credentials (Email/Password) within a secure SaaS Iframe. The central server validates access, generates the technical token, and safely transmits it to WordPress.
-* **RAM Quotas Security**: The system relies on a unified security signature masked in volatile memory (RAM), preventing any local manual tampering of license quotas.
+* **Zero-Latency Quota Validation**: License verification and feature quotas are cached in volatile memory (WP Transients / Memory Cache) to ensure SaaS validation never adds SQL overhead or slows down page load times for site visitors.
 * **Database Transaction Lock**: Before any write operation to the local database (saving licenses, global options, or Workshop configurations), the system validates the structural integrity of the registry. If the file is corrupted or incomplete, the transaction is immediately aborted to protect the site from crashes.
 * **Cloud Backups & Restores**: Compress the entire local workspace into ZIP format and send it asynchronously to your dedicated NEXUS Cloud space to secure your configurations in 1 click.
+* **Alpha Community Program (v0.3)**: NEXUS-WP is currently in active public Alpha (v0.3) to gather real-world benchmark metrics and feedback from WordPress agencies and developers before its official v1.0 Release Candidate.
 * **Diagnostics & Server Health Console**: Displays real-time server metrics (PHP version, write permissions of the storage directory, active `OpenSSL` and `ZipArchive` extensions, network connection test) to ease technical support.
 
 ---
